@@ -1,0 +1,11 @@
+An example picture from the DentalMate v5 dataset depicting a Caries   Filling, and a Caries   RCT
+An example picture from the DentalMate v5 dataset depicting Caries   Fillings
+An example picture from the DentalMate v5 dataset depicting Caries   Fillings, and abrasion   fillings
+An example picture from the DentalMate v5 dataset depicting a Caries   RCT
+An example picture from the DentalMate v5 dataset depicting Caries   RCTS
+An example picture from the DentalMate v5 dataset depicting abrasion   fillings
+An example picture from the DentalMate v5 dataset depicting a fractured   filling
+An example picture from the DentalMate v5 dataset depicting a fractured   filling, and a fractured teeth   crown
+An example picture from the DentalMate v5 dataset depicting fractured   fillings
+An example picture from the DentalMate v5 dataset depicting a fractured teeth   crown
+An example picture from the DentalMate v5 dataset depicting fractured teeth   crowns
