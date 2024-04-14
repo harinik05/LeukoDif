@@ -44,3 +44,33 @@ class CLIPTransformerLayer(nn.Module):
         # Return the tensor from feed forward
         return forward + self.feed_forward(self.norm2)
 
+# Main Class for CLIP Architecture Code
+class CLIPArc(nn.Module):
+    # Constructor
+    def __init__(self, vocabularySize = 49408, embeddingDimensionality=300, maxLength  = 90, numberHeads = 12, numberLayers = 12):
+        super().__init__()
+        # Vocab size = size of dataset, max sequence length (tolerance of a model)
+        self.embedding = CLIPEmbeddingModule(vocabularySize, embeddingDimensionality, maxLength)
+
+        # Layers
+        self.layers = nn.ModuleList([CLIPTransformerLayer(numberHeads,embeddingDimensionality) for _ in range(numberLayers)])
+
+        # Normalization layer
+        self.layernorm = nn.LayerNorm(embeddingDimensionality)
+    
+    # Forward pass function
+    def forward_pass(self, inputTokens):
+        # input tokens
+        inputTokens = inputTokens.long()
+
+        #  Pass through the embedding layer
+        embedded = self.embedding(inputTokens)
+
+        # Pass through the transformer layer
+        for layer in self.layers:
+            embedded = layer(embedded)
+        
+        # final layer normalization
+        output = self.final_layernorm(embedded)
+
+        return output
