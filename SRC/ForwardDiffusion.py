@@ -1,12 +1,18 @@
 import torch 
 import torch.nn.functional as F
+import torchvision.transforms as transforms
+import torchvision.datasets as datasets
+import torch.utils.data as data
+import numpy as np
+import matplotlib.pyplot as plt
 
 class ForwardDiffusion:
     # Constructor
-    def __init__(self, timesteps, startBetaValue, endBetaValue):
+    def __init__(self, timesteps, startBetaValue, endBetaValue, imageSize):
         # Initialize the values from the input parameters
         self.timesteps = timesteps
         self.betas = self.betaScheduler(startBetaValue, endBetaValue)
+        self.imageSize = imageSize
 
         # Initial calculations for terms in the formula
         alphaValue = 1 - self.betas
@@ -39,3 +45,31 @@ class ForwardDiffusion:
         variance = (sqrt_one_minus_alphas_cumprod_INTHISTIMESTEP *noiseOriginal).to(device)
         return (mean + variance, noiseOriginal.to(device))
     
+    # Loading the transformed dataset from google drive
+    def load_transformed_dataset(self, train_root, test_root):
+
+        # Basic transformations to all the image applied
+        data_transforms = [
+            transforms.Resize((self.img_size, self.img_size)),
+            transforms.RandomHorizontalFlip(),
+            transforms.ToTensor(),  # Scales data into [0,1]
+            transforms.Lambda(lambda t: (t * 2) - 1)  # Scale between [-1, 1]
+        ]
+
+        # Compose will put in a single transformation pipeline sequentially
+        data_transform = transforms.Compose(data_transforms)
+
+        # Train dataset
+        train_dataset = datasets.ImageFolder(
+            root=train_root,
+            transform=data_transform
+        )
+
+        # Test dataset
+        test_dataset = datasets.ImageFolder(
+            root=test_root,
+            transform=data_transform
+        )
+
+        # Combine both the datasets
+        return data.ConcatDataset([train_dataset, test_dataset])
