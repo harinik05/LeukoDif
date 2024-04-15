@@ -8,7 +8,7 @@ class GoogleDriveConnector:
     SCOPES = ['https://www.googleapis.com/auth/drive.readonly']
 
     # Pass the credentials.json file as the input (Google Developers Console, OAuth)
-    def __init__(self, credentials_file='credentials.json'):
+    def __init__(self, credentials_file):
         self.credentials_file = credentials_file
 
     # Authenticate 

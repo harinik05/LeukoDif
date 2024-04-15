@@ -46,7 +46,7 @@ class ForwardDiffusion:
         return (mean + variance, noiseOriginal.to(device))
     
     # Loading the transformed dataset from google drive
-    def load_transformed_dataset(self, train_root, test_root):
+    def loadTransformedDataset(self, train_root, test_root):
 
         # Basic transformations to all the image applied
         data_transforms = [
