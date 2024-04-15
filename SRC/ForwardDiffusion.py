@@ -51,9 +51,8 @@ class ForwardDiffusion:
         # Basic transformations to all the image applied
         data_transforms = [
             transforms.Resize((self.img_size, self.img_size)),
-            transforms.RandomHorizontalFlip(),
-            transforms.ToTensor(),  # Scales data into [0,1]
-            transforms.Lambda(lambda t: (t * 2) - 1)  # Scale between [-1, 1]
+            transforms.ToTensor(),  
+            transforms.Lambda(lambda t: (t * 2) - 1)  
         ]
 
         # Compose will put in a single transformation pipeline sequentially
@@ -73,3 +72,4 @@ class ForwardDiffusion:
 
         # Combine both the datasets
         return data.ConcatDataset([train_dataset, test_dataset])
+    
