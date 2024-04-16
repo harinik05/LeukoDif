@@ -1,2 +1,2 @@
-# Portraitoscope
-Stable diffusion model fine-tuned on PyTorch for actor generation using key descriptions from patients with Dimentia. 
+# LeukoDif
+Stable diffusion model for DDMM. Taken from Kaggle dataset: https://www.kaggle.com/datasets/mohammadamireshraghi/blood-cell-cancer-all-4class
