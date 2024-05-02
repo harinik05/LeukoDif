@@ -18,7 +18,7 @@ LeukoDif is a revolutionary AI tool that employs the power of Denoising Diffusio
 The forward diffusion process applies Markov's Chain to each of the timestep, to add Gaussian noise from the aid of Formula 1 (Assets Folder). The training is done through VAE's lower variational bound, wherein the negative log is considered to yield the highest log likelihood possible. The formula is reparametrized through alpha term, wherin the previous timestep noise is not even required to go to the next one. This model employs the usage of PyTorch linspace, for a linear noise scheduler. Through the use of variational bound, this loss is predicted to see if the model essentially comes to a phase of convergence. 
 
 ### 🔙 Backward Diffusion Process
-<img width="585" alt="Screenshot 2024-05-02 at 3 13 58 PM" src="https://github.com/harinik05/LeukoDif/assets/63025647/ed78d468-a770-4104-b1b9-d9c888999f71">
+<img height="400" alt="Screenshot 2024-05-02 at 3 13 58 PM" src="https://github.com/harinik05/LeukoDif/assets/63025647/ed78d468-a770-4104-b1b9-d9c888999f71">
 
 This reverse process involves going in the opposite direction of Markov's Chain, wherin mean + variance is learnt from the neural network. When I pass the actual image to the neural network (UNet), this should be able to predict the noised image and subtract from the current noise to land the denoised work. The segmentation mask can be easily built through a UNet Architecture (as shown in the code from BackwardDiffusion.py). This uses a buch of CV techniques such as positional embeddings, ResNet, self-attention, group normalization, and geLu blocks. 
 
