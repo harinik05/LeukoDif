@@ -3,7 +3,7 @@
 LeukoDif is a revolutionary AI tool that employs the power of Denoising Diffusion Medical Models (DDMM) to perform image synthesis and segmentation on a Acute Lymphoblastic Leukemia (ALL) dataset. This model has reparametrized VAE architecture, using encoders and decoders as a entry point for latent space in diffusion model. The mathematical formulas & code aspects were adapted from ideas of UC Berkeley paper "Denoising Diffusion Probabilistic Model." 
 
 ## Features
-1. Unsupervised machine learning:
+1.** Unsupervised machine learning**: Refers to the ability of the ML model to learn from the neural network without having to label the image set. This is extremely useful when we have a collection of 10k+ images, wherin none of these have classifications and we can recognize anomalies. In this particular scenario, we're going to use unsupervised learning for the generation of ALL images, regardless of its type. This serves a huge perspective in the 
 2. 
 Outline of ReadMe Page
 1. Cover Image
